@@ -9,12 +9,56 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
   <script defer src="script.js"></script>
   <title>Newsletter Sign Up</title>
 </head>
 
 <body>
-
+  <div class="card">
+    <div class="card-text">
+      <div class="card-info">
+        <h1>Stay updated!</h1>
+        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+        <div class="card-testimonials">
+          <div>
+            <img src="assets/images/icon-list.svg" alt="icon list">
+            <p>Product discovery and building what matters</p>
+          </div>
+          <div>
+            <img src="assets/images/icon-list.svg" alt="icon list">
+            <p>Measuring to ensure updates are a success</p>
+          </div>
+          <div>
+            <img src="assets/images/icon-list.svg" alt="icon list">
+            <p>And much more!</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-form">
+        <form id="form">
+          <div class="form-input">
+            <label for="email">Email address</label>
+            <input type="email" name="email" placeholder="email@company.com" id="email">
+          </div>
+          <button>Subscribe to monthly newsletter</button>
+        </form>
+      </div>
+    </div>
+    <div class="card-image">
+      <img src="assets/images/illustration-sign-up-desktop.svg" alt="">
+    </div>
+  </div>
+  <div class="success-container">
+    <div class="success-card">
+      <img src="assets/images/icon-success.svg" alt="success icon">
+      <h2>Thanks for subscribing!</h2>
+      <p>A confirmation email has been sent to <span>ash@loremcompany.com.</span> Please open it and click the button
+        inside to
+        confirm your subscription.</p>
+      <button>Dismiss message</button>
+    </div>
+  </div>
 </body>
 
 </html>
