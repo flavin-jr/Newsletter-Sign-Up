@@ -15,6 +15,7 @@ $card-bg-color: #FFFFFF;
 }
 
 @mixin primary-btn {
+    cursor: pointer;
     border: 1px solid #E7E7E7;
     border-radius: 8px;
     background-color: $primary-color;
@@ -22,6 +23,13 @@ $card-bg-color: #FFFFFF;
     height: 56px;
     font-weight: 700;
     line-height: 1.5;
+    transition: background-color 0.3s ease;
+}
+
+@mixin hover-btn {
+    background: linear-gradient(188deg, #FF6A3A 0%, #FF527B 100%);
+    box-shadow: 0 16px 32px rgba($color: #FF6155, $alpha: 0.5);
+
 }
 
 * {
@@ -31,7 +39,7 @@ $card-bg-color: #FFFFFF;
 body {
     @include flex-center();
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     background-color: $bg-color;
     font-family: 'Roboto', sans-serif;
 
@@ -44,12 +52,27 @@ body {
         border-radius: 36px;
         box-shadow: 0 15px 60px rgba($color: #000000, $alpha: 0.25);
 
+        @media (max-width:500px) {
+            flex-direction: column-reverse;
+            width: 100%;
+            height: 800px;
+            padding: 0px;
+            border-radius: 0px;
+        }
+
         .card-text {
             display: flex;
             flex-direction: column;
             gap: 40px;
             margin-left: 40px;
             width: 45%;
+
+            @media (max-width:500px) {
+                width: 100%;
+                height: auto;
+                padding: 40px 24px;
+                margin-left: 0px;
+            }
 
             .card-info {
                 display: flex;
@@ -87,11 +110,25 @@ body {
                         flex-direction: column;
                         gap: 8px;
 
-                        label {
-                            font-size: 0.75rem;
-                            font-weight: 700;
-                            line-height: 1.5;
-                            color: #242742;
+                        .label-container {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            label {
+
+                                font-size: 0.75rem;
+                                font-weight: 700;
+                                line-height: 1.5;
+                                color: #242742;
+                            }
+
+                            span {
+                                font-size: 0.75rem;
+                                font-weight: 700;
+                                line-height: 1.5;
+                                color: #FF6155;
+                            }
                         }
 
                         input {
@@ -107,12 +144,38 @@ body {
                         @include primary-btn();
                     }
 
+                    button:hover {
+                        @include hover-btn();
+                        border: none;
+                    }
+
                 }
             }
+        }
+
+        .card-image {
+            width: 400px;
+            height: 593px;
+            background-image: url(../assets/images/illustration-sign-up-desktop.svg);
+
+            @media (max-width:500px) {
+
+                height: 34%;
+                width: 100%;
+
+
+                background-image: url(../assets/images/illustration-sign-up-mobile.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                border-radius: 0px 0px 15px 15px;
+            }
+
         }
     }
 
     .success-container {
+        z-index: -1;
         position: absolute;
         top: 0;
         left: 0;
@@ -120,6 +183,22 @@ body {
         bottom: 0;
         background-color: $primary-color;
         @include flex-center();
+        width: 100%;
+        height: 100vh;
+
+        @media (max-width:500px) {
+            position: fixed;
+            /* Fixed positioning to cover the viewport */
+            top: 0;
+            left: 0;
+            width: 100vw;
+            /* Full viewport width */
+            height: 100vh;
+            /* Full viewport height */
+            overflow: hidden;
+            /* Optional: Prevents scrolling within the element */
+
+        }
 
         .success-card {
             background-color: #FFFFFF;
@@ -130,8 +209,19 @@ body {
             flex-direction: column;
             gap: 40px;
 
+            @media (max-width:500px) {
+                height: 100%;
+                border-radius: 0;
+                padding: 40px 24px;
+                justify-content: flex-end;
+            }
+
             img {
                 width: fit-content;
+
+
+
+
             }
 
             h2 {
@@ -148,11 +238,21 @@ body {
                     font-weight: 700;
                 }
 
+                @media (max-width:500px) {
+                    margin-bottom: 100px;
+                }
 
             }
 
             button {
                 @include primary-btn();
+
+                @media (max-width:500px) {}
+            }
+
+            button:hover {
+                @include hover-btn();
+                border: none;
             }
 
         }

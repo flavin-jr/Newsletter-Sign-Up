@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 100svh;
   background-color: #36384D;
   font-family: "Roboto", sans-serif;
 }
@@ -22,12 +22,29 @@ body .card {
   border-radius: 36px;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.25);
 }
+@media (max-width: 500px) {
+  body .card {
+    flex-direction: column-reverse;
+    width: 100%;
+    height: 800px;
+    padding: 0px;
+    border-radius: 0px;
+  }
+}
 body .card .card-text {
   display: flex;
   flex-direction: column;
   gap: 40px;
   margin-left: 40px;
   width: 45%;
+}
+@media (max-width: 500px) {
+  body .card .card-text {
+    width: 100%;
+    height: auto;
+    padding: 40px 24px;
+    margin-left: 0px;
+  }
 }
 body .card .card-text .card-info {
   display: flex;
@@ -59,11 +76,22 @@ body .card .card-text .card-form form div {
   flex-direction: column;
   gap: 8px;
 }
-body .card .card-text .card-form form div label {
+body .card .card-text .card-form form div .label-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+body .card .card-text .card-form form div .label-container label {
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 1.5;
   color: #242742;
+}
+body .card .card-text .card-form form div .label-container span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #FF6155;
 }
 body .card .card-text .card-form form div input {
   border: 1px solid rgba(25, 24, 43, 0.25);
@@ -71,6 +99,7 @@ body .card .card-text .card-form form div input {
   padding: 16px 24px;
 }
 body .card .card-text .card-form form button {
+  cursor: pointer;
   border: 1px solid #E7E7E7;
   border-radius: 8px;
   background-color: #242742;
@@ -78,8 +107,31 @@ body .card .card-text .card-form form button {
   height: 56px;
   font-weight: 700;
   line-height: 1.5;
+  transition: background-color 0.3s ease;
+}
+body .card .card-text .card-form form button:hover {
+  background: linear-gradient(188deg, #FF6A3A 0%, #FF527B 100%);
+  box-shadow: 0 16px 32px rgba(255, 97, 85, 0.5);
+  border: none;
+}
+body .card .card-image {
+  width: 400px;
+  height: 593px;
+  background-image: url(../assets/images/illustration-sign-up-desktop.svg);
+}
+@media (max-width: 500px) {
+  body .card .card-image {
+    height: 34%;
+    width: 100%;
+    background-image: url(../assets/images/illustration-sign-up-mobile.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 0px 0px 15px 15px;
+  }
 }
 body .success-container {
+  z-index: -1;
   position: absolute;
   top: 0;
   left: 0;
@@ -89,6 +141,22 @@ body .success-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100vh;
+}
+@media (max-width: 500px) {
+  body .success-container {
+    position: fixed;
+    /* Fixed positioning to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* Full viewport width */
+    height: 100vh;
+    /* Full viewport height */
+    overflow: hidden;
+    /* Optional: Prevents scrolling within the element */
+  }
 }
 body .success-container .success-card {
   background-color: #FFFFFF;
@@ -98,6 +166,14 @@ body .success-container .success-card {
   display: flex;
   flex-direction: column;
   gap: 40px;
+}
+@media (max-width: 500px) {
+  body .success-container .success-card {
+    height: 100%;
+    border-radius: 0;
+    padding: 40px 24px;
+    justify-content: flex-end;
+  }
 }
 body .success-container .success-card img {
   width: fit-content;
@@ -114,7 +190,13 @@ body .success-container .success-card p span {
   color: #242742;
   font-weight: 700;
 }
+@media (max-width: 500px) {
+  body .success-container .success-card p {
+    margin-bottom: 100px;
+  }
+}
 body .success-container .success-card button {
+  cursor: pointer;
   border: 1px solid #E7E7E7;
   border-radius: 8px;
   background-color: #242742;
@@ -122,6 +204,12 @@ body .success-container .success-card button {
   height: 56px;
   font-weight: 700;
   line-height: 1.5;
+  transition: background-color 0.3s ease;
+}
+body .success-container .success-card button:hover {
+  background: linear-gradient(188deg, #FF6A3A 0%, #FF527B 100%);
+  box-shadow: 0 16px 32px rgba(255, 97, 85, 0.5);
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */
