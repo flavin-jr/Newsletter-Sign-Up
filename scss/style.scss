@@ -1,6 +1,7 @@
 $bg-color: #36384D;
 $primary-color: #242742;
 $card-bg-color: #FFFFFF;
+$error-color: #FF6155;
 
 @mixin flex-center {
     display: flex;
@@ -24,11 +25,18 @@ $card-bg-color: #FFFFFF;
     font-weight: 700;
     line-height: 1.5;
     transition: background-color 0.3s ease;
+
 }
 
 @mixin hover-btn {
     background: linear-gradient(188deg, #FF6A3A 0%, #FF527B 100%);
     box-shadow: 0 16px 32px rgba($color: #FF6155, $alpha: 0.5);
+
+}
+
+@mixin error-box {
+    border-color: $error-color !important;
+    background-color: rgba($color: $error-color, $alpha: 0.15);
 
 }
 
@@ -135,8 +143,14 @@ body {
                             border: 1px solid rgba($color: #19182B, $alpha: 0.25);
                             border-radius: 8px;
                             padding: 16px 24px;
+                            outline: none;
 
                         }
+
+                        input::placeholder {
+                            color: $primary-color;
+                        }
+
 
                     }
 
@@ -148,6 +162,8 @@ body {
                         @include hover-btn();
                         border: none;
                     }
+
+
 
                 }
             }
@@ -188,15 +204,11 @@ body {
 
         @media (max-width:500px) {
             position: fixed;
-            /* Fixed positioning to cover the viewport */
             top: 0;
             left: 0;
             width: 100vw;
-            /* Full viewport width */
             height: 100vh;
-            /* Full viewport height */
             overflow: hidden;
-            /* Optional: Prevents scrolling within the element */
 
         }
 
@@ -257,4 +269,12 @@ body {
 
         }
     }
+}
+
+.error {
+    @include error-box();
+}
+
+.error::placeholder {
+    color: $error-color !important;
 }

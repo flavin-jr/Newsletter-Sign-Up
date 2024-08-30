@@ -97,6 +97,10 @@ body .card .card-text .card-form form div input {
   border: 1px solid rgba(25, 24, 43, 0.25);
   border-radius: 8px;
   padding: 16px 24px;
+  outline: none;
+}
+body .card .card-text .card-form form div input::placeholder {
+  color: #242742;
 }
 body .card .card-text .card-form form button {
   cursor: pointer;
@@ -147,15 +151,11 @@ body .success-container {
 @media (max-width: 500px) {
   body .success-container {
     position: fixed;
-    /* Fixed positioning to cover the viewport */
     top: 0;
     left: 0;
     width: 100vw;
-    /* Full viewport width */
     height: 100vh;
-    /* Full viewport height */
     overflow: hidden;
-    /* Optional: Prevents scrolling within the element */
   }
 }
 body .success-container .success-card {
@@ -210,6 +210,15 @@ body .success-container .success-card button:hover {
   background: linear-gradient(188deg, #FF6A3A 0%, #FF527B 100%);
   box-shadow: 0 16px 32px rgba(255, 97, 85, 0.5);
   border: none;
+}
+
+.error {
+  border-color: #FF6155 !important;
+  background-color: rgba(255, 97, 85, 0.15);
+}
+
+.error::placeholder {
+  color: #FF6155 !important;
 }
 
 /*# sourceMappingURL=style.css.map */
